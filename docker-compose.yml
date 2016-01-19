@@ -1,0 +1,12 @@
+esaude-platform-tomcat:
+  build: tomcat
+  ports:
+    - "8080:8080"
+  container_name: esaude-platform-tomcat
+  links:
+    - esaude-platform-mysql
+esaude-platform-mysql:
+  build: mysql
+  ports:
+    - "3306:3306"
+  container_name: esaude-platform-mysql
