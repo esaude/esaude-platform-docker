@@ -52,6 +52,15 @@ To log into eSaude EMR Plaform, use the following details:
 * **User**: admin
 * **Pass**: eSaude123
 
+## Troubleshooting
+
+Since it's not currently possible to order the startup of Docker containers, sometimes the Tomcat container will start before the MySQL container. As a result, OpenMRS might not get a database connection on start up. To work around this, stop the containers and restart them:
+
+````
+$ docker-compose stop
+$ docker-compose start
+````
+
 ## License
 
 [MPL 2.0 w/ HD](http://openmrs.org/license/) © [OpenMRS Inc.](http://www.openmrs.org/)
