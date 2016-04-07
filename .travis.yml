@@ -5,3 +5,8 @@ script:
   - docker-compose build
 after_script:
   - docker images
+deploy:
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    tags: true
