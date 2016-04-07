@@ -4,6 +4,8 @@
 
 # eSaude EMR Platform Docker
 
+[![Build Status](https://travis-ci.org/esaude/esaude-platform-docker.svg?branch=master)](https://travis-ci.org/esaude/esaude-platform-docker)
+
 This repository contains the necessary infrastructure code and related resources
 required to compose and run Docker containers that start an instance
 of the eSaude EMR Platform.
