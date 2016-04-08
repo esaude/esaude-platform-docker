@@ -19,33 +19,67 @@ Make sure you have [Docker](https://docs.docker.com/) and [Docker Compose](https
 
 ## Setup
 
-Start by cloning this repository:
+Start by cloning this repository and entering the directory:
 
 ````
-$ git clone https://github.com/esaude/esaude-platform-docker.git
+git clone https://github.com/esaude/esaude-platform-docker.git
+cd esaude-platform-docker
 ````
 
-Enter the directory and build the images:
+You now have two options. You can either build the Docker images from scratch,
+or you can use the [prebuilt images from Bintray](https://bintray.com/esaude/platform-docker).
 
-````
-$ cd esaude-platform-docker
-$ docker-compose build
-````
+### Using Prebuilt Images
 
-Once the build is complete, you'll have to make sure that the mysql container
+Run:
+
+```
+docker-compose -f docker-compose-prebuilt.yml pull
+```
+
+### Building The Images
+
+Run:
+
+```
+docker-compose build
+```
+
+### Initialization
+
+Once the pulling or building is complete, you'll have to make sure that the mysql container
 is initialized due to [this limitation](https://github.com/docker-library/mysql/issues/81).
-Do this by running the following:
 
-````
-$ docker-compose up esaude-platform-mysql
-````
+If you pulled the prebuilt images, run:
 
-When it's done you can press `ctrl+c` to stop the container. After this you can
-run eSaude EMR Platform by executing the following:
+```
+docker-compose -f docker-compose-prebuilt.yml up esaude-platform-mysql
+```
 
-````
-$ docker-compose up
-````
+If you built the images from scratch, run:
+
+```
+docker-compose up esaude-platform-mysql
+```
+
+When you see the following, and nothing more is being logged to the console, it's done initializing:
+
+```
+Version: '5.6.29'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
+```
+
+You can then press <kbd>Ctrl+C</kbd> to stop the container. After this you can
+run eSaude EMR Platform by executing the following if you're using the prebuilt images:
+
+```
+docker-compose -f docker-compose-prebuilt.yml up
+```
+
+Or if you built the images from scratch:
+
+```
+docker-compose up
+```
 
 ## Access
 
@@ -60,8 +94,8 @@ To log into eSaude EMR Plaform, use the following details:
 Since it's not currently possible to order the startup of Docker containers, sometimes the Tomcat container will start before the MySQL container. As a result, OpenMRS might not get a database connection on start up. To work around this, stop the containers and restart them:
 
 ````
-$ docker-compose stop
-$ docker-compose start
+$ docker-compose [-f docker-compose-prebuilt.yml] stop
+$ docker-compose [-f docker-compose-prebuilt.yml] start
 ````
 
 ## License
