@@ -1,4 +1,5 @@
 #!/bin/bash
+set -o xtrace
 
 # Log in to the Bintray Docker registry
 docker login -u $BINTRAY_USER -p $BINTRAY_API_KEY -e $BINTRAY_EMAIL esaude-docker-platform-docker.bintray.io
