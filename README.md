@@ -5,6 +5,7 @@
 # eSaude EMR Platform Docker
 
 [![Build Status](https://travis-ci.org/esaude/esaude-platform-docker.svg?branch=master)](https://travis-ci.org/esaude/esaude-platform-docker)
+ [![Download](https://api.bintray.com/packages/esaude/platform-docker/tomcat/images/download.svg) ](https://bintray.com/esaude/platform-docker/tomcat/_latestVersion)
 
 This repository contains the necessary infrastructure code and related resources
 required to compose and run Docker containers that start an instance
