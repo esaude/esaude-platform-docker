@@ -1,13 +1,16 @@
 sudo: required
 services:
-  - docker
+- docker
 script:
-  - docker-compose build
+- docker-compose build
 after_script:
-  - docker images
+- docker images
 deploy:
   provider: script
   script: scripts/deploy.sh
   on:
     tags: true
   skip_cleanup: true
+notifications:
+  slack:
+    secure: Ts0SmI9HeuZhcHMTn5wbv7RY58Cc9v8HjBBGzAl84C99ySsR33A1Q24CcM2kEdSvaL/nibDrHskrBpsk1pVELqIgNoJ9Y45AvlMoCoW3raT0kWiDlHrjJxSl93eAynIgd6YZ+DC3APWbhBlUDR5BQatwLUcunjSWe4fM6v2GIjVn/Vs57oKcWvXbMT6PZDsVlt++i5RtEGaO7uPP3mOlAW3vbj6ahu0FxdqqFQoSlayWhyOpACL19HHo3RupJYocChpO04w/SSRtxdLW2De5uDeCPfAuBUG0vbqTyKUgTQHSxaZJ04KT3mEtbtt3OAdIXP6EfX5Tsybl9PSF9K1kTTJBD2CxBheuiyNXARSliGe8IgbAUMRUXK4xJKaIjoU/i5GZU8ZGAnNZCUJtoiK4SGMajGW4Ctq9HkokeEg26CjwKn2ZNKxea4+HFunUVZkMiHS0IIz4KIEQbntghs1BPCCLysHyrLQseYjCu6MoU2O2KK01dEc8/j1fKvfPAWl14bSVQ17NiM+4DpNfdoweu46RJoGnZMLAHxCWyx8eF8J/uwP0eICTgWMt+oIw7Nja+py2s5ubIE3RK6r6CdaG2asJtcsFh1xzcWmZOr11+eqr1LNEzIhHT+WFk0MAcwiKjG3k2JGp0uQBIdjcvtYHccCdmLh3kfiPT/m5LHZt2Kw=
