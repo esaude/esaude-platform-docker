@@ -1,0 +1,21 @@
+{
+  "name": "esaude-platform-docker",
+  "version": "1.2.0",
+  "description": "eSaude EMR Platform App",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esaude/esaude-platform-docker.git"
+  },
+  "scripts": {
+    "create-version": "npm --no-git-tag-version version",
+    "publish-version": "git tag $(node -e \"console.log(require('./package.json').version);\") && git push --tags"
+  },
+  "keywords": [
+    "esaude",
+    "emr",
+    "platform"
+  ],
+  "author": "Pascal Brandt <pascal@esaude.org> (http://esaude.org)",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/esaude/esaude-platform-docker#readme"
+}
