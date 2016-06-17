@@ -1,13 +1,22 @@
 sudo: required
 services:
 - docker
+env:
+  DOCKER_COMPOSE_VERSION: 1.7.1
+before_install:
+  - sudo apt-get purge -y docker-engine
+  - sudo apt-get install -y docker-engine
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 script:
 - docker-compose build
 after_script:
 - docker images
 deploy:
   provider: script
-  script: scripts/deploy.sh
+  script: scripts/publish-images.sh
   on:
     tags: true
   skip_cleanup: true

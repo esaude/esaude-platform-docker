@@ -45,31 +45,9 @@ Run:
 docker-compose build
 ```
 
-### Initialization
+### Running
 
-Once the pulling or building is complete, you'll have to make sure that the mysql container
-is initialized due to [this limitation](https://github.com/docker-library/mysql/issues/81).
-
-If you pulled the prebuilt images, run:
-
-```
-docker-compose -f docker-compose-prebuilt.yml up esaude-platform-mysql
-```
-
-If you built the images from scratch, run:
-
-```
-docker-compose up esaude-platform-mysql
-```
-
-When you see the following, and nothing more is being logged to the console, it's done initializing:
-
-```
-Version: '5.6.29'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
-```
-
-You can then press <kbd>Ctrl+C</kbd> to stop the container. After this you can
-run eSaude EMR Platform by executing the following if you're using the prebuilt images:
+Run:
 
 ```
 docker-compose -f docker-compose-prebuilt.yml up
@@ -89,14 +67,6 @@ To log into eSaude EMR Plaform, use the following details:
 * **User**: admin
 * **Pass**: eSaude123
 
-## Troubleshooting
-
-Since it's not currently possible to order the startup of Docker containers, sometimes the Tomcat container will start before the MySQL container. As a result, OpenMRS might not get a database connection on start up. To work around this, stop the containers and restart them:
-
-````
-$ docker-compose [-f docker-compose-prebuilt.yml] stop
-$ docker-compose [-f docker-compose-prebuilt.yml] start
-````
 
 ## License
 
