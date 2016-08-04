@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y curl unzip; \
     curl -k -L https://bintray.com/artifact/download/esaude/platform/1.2.0/openmrs.war \
          -o /usr/local/tomcat/webapps/openmrs.war; \
     mkdir -p /usr/local/tomcat/.OpenMRS/modules; \
-    curl -k -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-modules-1.2.2.zip \
+    curl -k -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-modules-1.2.3.zip \
          -o /tmp/esaude-emr-modules.zip; \
     unzip /tmp/esaude-emr-modules.zip -d /usr/local/tomcat/.OpenMRS/modules; rm /tmp/esaude-emr-modules.zip;
 
