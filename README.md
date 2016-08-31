@@ -5,7 +5,8 @@
 # eSaude EMR Platform Docker
 
 [![Build Status](https://travis-ci.org/esaude/esaude-platform-docker.svg?branch=master)](https://travis-ci.org/esaude/esaude-platform-docker)
- [![Download](https://api.bintray.com/packages/esaude/platform-docker/tomcat/images/download.svg) ](https://bintray.com/esaude/platform-docker/tomcat/_latestVersion)
+[![Download](https://api.bintray.com/packages/esaude/platform-docker/tomcat/images/download.svg) ](https://bintray.com/esaude/platform-docker/tomcat/_latestVersion)
+[![eSaude Slack](https://slack.esaude.org/badge.svg)](https://slack.esaude.org)
 
 This repository contains the necessary infrastructure code and related resources
 required to compose and run Docker containers that start an instance
@@ -26,7 +27,17 @@ git clone https://github.com/esaude/esaude-platform-docker.git
 cd esaude-platform-docker
 ````
 
-You now have two options. You can either build the Docker images from scratch,
+### Quickstart
+
+Running the following should be enough to pull and run the eSaude EMR Platform:
+
+```
+docker-compose -f docker-compose-prebuilt.yml up -d
+```
+
+### Details
+
+You have two options. You can either build the Docker images from scratch,
 or you can use the [prebuilt images from Bintray](https://bintray.com/esaude/platform-docker).
 
 ### Using Prebuilt Images
@@ -34,7 +45,7 @@ or you can use the [prebuilt images from Bintray](https://bintray.com/esaude/pla
 Run:
 
 ```
-docker-compose -f docker-compose-prebuilt.yml pull
+docker-compose -f docker-compose-prebuilt.yml up -d
 ```
 
 ### Building The Images
@@ -42,31 +53,16 @@ docker-compose -f docker-compose-prebuilt.yml pull
 Run:
 
 ```
-docker-compose build
-```
-
-### Running
-
-Run:
-
-```
-docker-compose -f docker-compose-prebuilt.yml up
-```
-
-Or if you built the images from scratch:
-
-```
-docker-compose up
+docker-compose up -d
 ```
 
 ## Access
 
 To log into eSaude EMR Plaform, use the following details:
 
-* **Host**: `DOCKER_HOST:8080/openmrs`
+* **Host**: [`DOCKER_HOST:8080/openmrs`](http://localhost:8080/openmrs)
 * **User**: admin
 * **Pass**: eSaude123
-
 
 ## License
 

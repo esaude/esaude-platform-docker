@@ -7,6 +7,16 @@ services:
     container_name: esaude-platform-tomcat
     depends_on:
       - esaude-platform-mysql
+    networks:
+      - network
   esaude-platform-mysql:
     image: esaude-docker-platform-docker.bintray.io/mysql:1.2.7
     container_name: esaude-platform-mysql
+    networks:
+      - network
+    volumes:
+      - data:/opt/esaude/data
+networks:
+  network:
+volumes:
+  data:

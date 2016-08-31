@@ -1,6 +1,7 @@
 [mysqld]
 character-set-server=utf8
 collation-server=utf8_general_ci
+datadir=/opt/esaude/data/system/mysql
 
 [mysql]
 default-character-set=utf8
