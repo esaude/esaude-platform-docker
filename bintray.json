@@ -8,8 +8,8 @@
     "name": "__RELEASE_VERSION__"
   },
   "files": [{
-    "includePattern": "esaude-app-platform.tar",
-    "uploadPattern": "esaude-app-platform-__RELEASE_VERSION__.tar",
+    "includePattern": "esaude-app-platform.tar.gz",
+    "uploadPattern": "esaude-app-platform-__RELEASE_VERSION__.tar.gz",
     "matrixParams": {
       "override": 1
     }

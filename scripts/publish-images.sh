@@ -19,3 +19,4 @@ docker push esaude-docker-platform-docker.bintray.io/mysql:$TRAVIS_TAG
 
 # Bundle app for offline install
 docker save -o esaude-app-platform.tar esaude-docker-platform-docker.bintray.io/tomcat esaude-docker-platform-docker.bintray.io/mysql
+gzip esaude-app-platform.tar
