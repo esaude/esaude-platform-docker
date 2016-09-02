@@ -5,3 +5,6 @@ datadir=/opt/esaude/data/system/mysql
 
 [mysql]
 default-character-set=utf8
+
+[embedded]
+datadir=/opt/esaude/data/system/mysql
