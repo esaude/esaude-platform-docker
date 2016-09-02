@@ -16,3 +16,6 @@ docker tag `docker images -q esaude_esaude-platform-mysql` esaude-docker-platfor
 
 # Push the mysql image
 docker push esaude-docker-platform-docker.bintray.io/mysql:$TRAVIS_TAG
+
+# Bundle app for offline install
+docker save -o esaude-app-platform.tar esaude-docker-platform-docker.bintray.io/tomcat esaude-docker-platform-docker.bintray.io/mysql

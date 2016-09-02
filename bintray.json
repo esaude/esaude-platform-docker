@@ -1,0 +1,18 @@
+{
+  "package": {
+    "name": "esaude-app-platform",
+    "repo": "apps",
+    "subject": "esaude"
+  },
+  "version": {
+    "name": "__RELEASE_VERSION__"
+  },
+  "files": [{
+    "includePattern": "esaude-app-platform.tar",
+    "uploadPattern": "esaude-app-platform-__RELEASE_VERSION__.tar",
+    "matrixParams": {
+      "override": 1
+    }
+  }],
+  "publish": true
+}
