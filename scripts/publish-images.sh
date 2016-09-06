@@ -22,5 +22,5 @@ docker save -o esaude-app-platform.tar esaude-docker-platform-docker.bintray.io/
 gzip esaude-app-platform.tar
 
 # Notify to slack
-SLACK_MESSAGE="New eSaude Platform <https://bintray.com/esaude/poc-docker/poc|Docker images> and <https://bintray.com/esaude/apps/esaude-app-platform|offline installer> published ($TRAVIS_TAG)"
+SLACK_MESSAGE="New eSaude Platform <https://bintray.com/esaude/platform-docker|Docker images> and <https://bintray.com/esaude/apps/esaude-app-platform|offline installer> published ($TRAVIS_TAG)"
 curl -X POST --data-urlencode 'payload={"username": "eSaude Bintray", "text": "'"$SLACK_MESSAGE"'", "icon_url": "https://bintray.com/assets/favicon.png"}' $SLACK_WEBHOOK_URL
