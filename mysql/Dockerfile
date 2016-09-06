@@ -13,7 +13,10 @@ ADD localtime /etc/localtime
 RUN apk add --update mariadb mariadb-client curl zip unzip; \
     curl -L https://bintray.com/artifact/download/esaude/platform/1.2.0/esaude-platform-database.sql.zip \
          -o /tmp/esaude-platform-database.sql.zip; \
-    apk del curl && rm -f /var/cache/apk/*
+    apk del curl unzip && rm -f /var/cache/apk/*; \
+    rm /usr/bin/mysql_client_test_embedded; \
+    rm /usr/bin/mysqltest; \
+    rm /usr/bin/mysqltest_embedded;
 
 COPY run.sh /run.sh
 
