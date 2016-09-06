@@ -8,8 +8,9 @@ ENV MYSQL_DATA_DIRECTORY=/opt/esaude/data/system/mysql
 
 ADD esaude-mysql.cnf /root/.my.cnf
 ADD backup /usr/bin/backup
+ADD localtime /etc/localtime
 
-RUN apk add --update mariadb curl unzip; \
+RUN apk add --update mariadb mariadb-client curl zip unzip; \
     curl -L https://bintray.com/artifact/download/esaude/platform/1.2.0/esaude-platform-database.sql.zip \
          -o /tmp/esaude-platform-database.sql.zip; \
     apk del curl && rm -f /var/cache/apk/*

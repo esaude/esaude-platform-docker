@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-date=$(date +%d-%m-%y_%Hh%Mm%Ss)
+date=$(date +%d-%m-%y-%Hh%Mm%Ss)
 path=/opt/esaude/data/backups
 filename=esaude-platform-backup-$date.sql
 zip_filename=$filename.zip
@@ -15,7 +15,7 @@ if [ ! -d "$path" ]; then
 fi
 
 # Create backup
-MYSQL_PWD="$MYSQL_PASSWORD" mysqldump -u"$MYSQL_USER" "$MYSQL_DATABASE" > "$path/$filename"
+MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysqldump -uroot "$MYSQL_DATABASE" > "$path/$filename"
 
 # ZIP backup
 cd $path

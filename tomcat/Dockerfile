@@ -5,6 +5,7 @@ ENV DOCKERIZE_VERSION v0.2.0
 ADD openmrs-runtime.properties /usr/local/tomcat/openmrs-runtime.properties
 ADD setenv.sh /usr/local/tomcat/bin/setenv.sh
 ADD bahmnicore.properties /usr/local/tomcat/.OpenMRS/bahmnicore.properties
+ADD localtime /etc/localtime
 
 RUN apk --update add curl unzip; \
     rm -rf /usr/local/tomcat/webapps/*; \
