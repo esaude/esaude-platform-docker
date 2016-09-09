@@ -9,6 +9,8 @@ services:
       - esaude-platform-mysql
     networks:
       - network
+    hostname: esaude-platform-tomcat
+    restart: unless-stopped
   esaude-platform-mysql:
     image: esaude-docker-platform-docker.bintray.io/mysql:1.2.13
     container_name: esaude-platform-mysql
@@ -16,6 +18,8 @@ services:
       - network
     volumes:
       - data:/opt/esaude/data
+    hostname: esaude-platform-mysql
+    restart: unless-stopped
 networks:
   network:
 volumes:
