@@ -1,7 +1,11 @@
 #!/bin/sh
 set -ex
 
-if [ -f "$MYSQL_DATA_DIRECTORY" ]; then
+if [ ! -d "/run/mysqld" ]; then
+	mkdir -p /run/mysqld
+fi
+
+if [ -d "$MYSQL_DATA_DIRECTORY" ]; then
 	echo 'MySQL data directory exists'
 else
 	echo 'MySQL data directory does not exist'
@@ -10,10 +14,6 @@ else
 	mkdir -p "$MYSQL_DATA_DIRECTORY"
 	mysql_install_db --user=root --datadir="$MYSQL_DATA_DIRECTORY" --rpm
 	echo 'Database initialized'
-
-  if [ ! -d "/run/mysqld" ]; then
-    mkdir -p /run/mysqld
-  fi
 
 	tfile=$(mktemp)
   if [ ! -f "$tfile" ]; then
