@@ -13,7 +13,7 @@ RUN apk --update add curl unzip; \
          -o /usr/local/tomcat/webapps/openmrs.war;
 
 RUN mkdir -p /usr/local/tomcat/.OpenMRS/modules; \
-    curl -k -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-modules-1.2.9.zip \
+    curl -k -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-modules-1.2.10.zip \
          -o /tmp/esaude-emr-modules.zip; \
     unzip /tmp/esaude-emr-modules.zip -d /usr/local/tomcat/.OpenMRS/modules; \
     rm /tmp/esaude-emr-modules.zip; \
