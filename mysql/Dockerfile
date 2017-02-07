@@ -11,7 +11,7 @@ ADD backup /usr/bin/backup
 ADD localtime /etc/localtime
 
 RUN apk add --update mariadb mariadb-client curl zip unzip; \
-    curl -L https://bintray.com/artifact/download/esaude/platform/1.2.0/esaude-platform-database.sql.zip \
+    curl -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-database-1.2.1.sql.zip \
          -o /tmp/esaude-platform-database.sql.zip; \
     apk del curl unzip && rm -f /var/cache/apk/*; \
     rm /usr/bin/mysql_client_test_embedded; \
