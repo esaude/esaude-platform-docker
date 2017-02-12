@@ -2,6 +2,9 @@ FROM tomcat:7-jre7-alpine
 
 ENV DOCKERIZE_VERSION v0.2.0
 
+ENV JPDA_ADDRESS=8000
+ENV JPDA_TRANSPORT=dt_socket
+
 ADD openmrs-runtime.properties /usr/local/tomcat/openmrs-runtime.properties
 ADD setenv.sh /usr/local/tomcat/bin/setenv.sh
 ADD bahmnicore.properties /usr/local/tomcat/.OpenMRS/bahmnicore.properties
