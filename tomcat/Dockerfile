@@ -23,4 +23,10 @@ RUN mkdir -p /usr/local/tomcat/.OpenMRS/modules; \
     rm /tmp/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz; \
     apk del curl unzip && rm -f /var/cache/apk/*;
 
+RUN rm -rf /usr/local/tomcat/logs; \
+    mkdir -p /opt/esaude/data/system/tomcat/logs; \
+    ln -s /opt/esaude/data/system/tomcat/logs /usr/local/tomcat/logs;
+
+VOLUME /opt/esaude/data
+
 CMD dockerize -wait tcp://esaude-platform-mysql:3306 -timeout 300s /usr/local/tomcat/bin/catalina.sh run
