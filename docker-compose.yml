@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   esaude-platform-tomcat:
     build: tomcat
@@ -9,6 +9,8 @@ services:
       - esaude-platform-mysql
     networks:
       - network
+    volumes:
+      - data:/opt/esaude/data
     hostname: esaude-platform-tomcat
     restart: unless-stopped
   esaude-platform-mysql:

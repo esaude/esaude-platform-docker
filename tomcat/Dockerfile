@@ -6,6 +6,7 @@ ADD openmrs-runtime.properties /usr/local/tomcat/openmrs-runtime.properties
 ADD setenv.sh /usr/local/tomcat/bin/setenv.sh
 ADD bahmnicore.properties /usr/local/tomcat/.OpenMRS/bahmnicore.properties
 ADD localtime /etc/localtime
+ADD logging.properties /usr/local/tomcat/conf/logging.properties
 
 RUN apk --update add curl unzip; \
     rm -rf /usr/local/tomcat/webapps/*; \
@@ -22,10 +23,6 @@ RUN mkdir -p /usr/local/tomcat/.OpenMRS/modules; \
     tar -C /usr/local/bin -xzvf /tmp/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz; \
     rm /tmp/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz; \
     apk del curl unzip && rm -f /var/cache/apk/*;
-
-RUN rm -rf /usr/local/tomcat/logs; \
-    mkdir -p /opt/esaude/data/system/tomcat/logs; \
-    ln -s /opt/esaude/data/system/tomcat/logs /usr/local/tomcat/logs;
 
 VOLUME /opt/esaude/data
 
