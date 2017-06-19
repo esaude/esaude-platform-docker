@@ -7,6 +7,7 @@ ADD setenv.sh /usr/local/tomcat/bin/setenv.sh
 ADD bahmnicore.properties /usr/local/tomcat/.OpenMRS/bahmnicore.properties
 ADD localtime /etc/localtime
 ADD logging.properties /usr/local/tomcat/conf/logging.properties
+ADD catalina.properties /usr/local/tomcat/conf/catalina.properties
 
 RUN apk --update add curl unzip; \
     rm -rf /usr/local/tomcat/webapps/*; \
