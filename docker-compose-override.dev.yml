@@ -3,3 +3,10 @@ services:
   esaude-platform-mysql:
     ports:
       - "3306:3306"
+  esaude-platform-tomcat:
+    environment:
+      - JPDA_ADDRESS=8000
+      - JPDA_TRANSPORT=dt_socket
+    ports:
+      - "8000:8000"
+    command: dockerize -wait tcp://esaude-platform-mysql:3306 -timeout 300s /usr/local/tomcat/bin/catalina.sh jpda run
