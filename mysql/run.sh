@@ -30,7 +30,7 @@ else
 		GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';
 	EOF
 
-  /usr/bin/mysqld --user=root --bootstrap --verbose=0 < "$tfile"
+  /usr/sbin/mysqld --user=root --bootstrap --verbose=0 < "$tfile"
   rm -f "$tfile"
 
 	cd tmp
@@ -40,4 +40,4 @@ else
 fi
 
 echo 'Starting server'
-exec /usr/bin/mysqld --user=root --console
+exec /usr/sbin/mysqld --user=root --console
