@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM mysql:5.6
 
 ENV MYSQL_ROOT_PASSWORD=eSaudeRootMySQLPassword
 ENV MYSQL_DATABASE=openmrs
@@ -10,13 +10,15 @@ ADD esaude-mysql.cnf /root/.my.cnf
 ADD backup /usr/bin/backup
 ADD localtime /etc/localtime
 
-RUN apk add --update mariadb mariadb-client curl zip unzip; \
-    curl -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-database-1.2.1.sql.zip \
-         -o /tmp/esaude-platform-database.sql.zip; \
-    apk del curl unzip && rm -f /var/cache/apk/*; \
-    rm /usr/bin/mysql_client_test_embedded; \
-    rm /usr/bin/mysqltest; \
-    rm /usr/bin/mysqltest_embedded;
+RUN apt-get update && apt-get install -y \
+    curl \
+    zip \
+    unzip \
+&& curl -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-database-1.2.1.sql.zip \
+    -o /tmp/esaude-platform-database.sql.zip \
+&& apt-get remove -y \
+   curl \
+   zip  
 
 COPY run.sh /run.sh
 
