@@ -1,6 +1,8 @@
 sudo: required
 services:
 - docker
+before_script:
+  - sed -i "s/__RELEASE_VERSION__/$TRAVIS_TAG/g" tomcat/Dockerfile
 script:
   - docker-compose build
 after_script:
