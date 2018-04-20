@@ -2,7 +2,7 @@ sudo: required
 services:
 - docker
 before_script:
-  - sed -i "s/__RELEASE_VERSION__/$TRAVIS_TAG/g" tomcat/Dockerfile
+  - if [ -z $TRAVIS_TAG ]; then sed -i "s/__RELEASE_VERSION__/$TRAVIS_COMMIT/g" tomcat/Dockerfile; else sed -i "s/__RELEASE_VERSION__/$TRAVIS_TAG/g" tomcat/Dockerfile; fi
 script:
   - docker-compose build
 after_script:
