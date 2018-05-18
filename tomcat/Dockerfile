@@ -9,6 +9,7 @@ ADD bahmnicore.properties /usr/local/tomcat/.OpenMRS/bahmnicore.properties
 ADD localtime /etc/localtime
 ADD logging.properties /usr/local/tomcat/conf/logging.properties
 ADD catalina.properties /usr/local/tomcat/conf/catalina.properties
+ADD server.xml /usr/local/tomcat/conf/server.xml
 
 RUN apk --update add curl unzip fastjar; \
     rm -rf /usr/local/tomcat/webapps/*; \
