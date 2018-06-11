@@ -1,4 +1,4 @@
-FROM tomcat:7-jre7-alpine
+FROM tomcat:7-jre8-alpine
 
 ENV RELEASE_VERSION __RELEASE_VERSION__
 ENV DOCKERIZE_VERSION v0.2.0
@@ -12,7 +12,7 @@ ADD catalina.properties /usr/local/tomcat/conf/catalina.properties
 
 RUN apk --update add curl unzip fastjar; \
     rm -rf /usr/local/tomcat/webapps/*; \
-    curl -k -L https://bintray.com/artifact/download/esaude/platform/1.2.0/openmrs.war \
+    curl -k -L https://bintray.com/artifact/download/esaude/platform/2.0.5/openmrs.war \
          -o /usr/local/tomcat/webapps/openmrs.war; \
     mkdir /tmp/war_temp && unzip -q /usr/local/tomcat/webapps/openmrs.war -d /tmp/war_temp; \
     sed -i "s/Powered by/Powered by eSaúde Platform v$RELEASE_VERSION and/g" /tmp/war_temp/WEB-INF/messages.properties; \
