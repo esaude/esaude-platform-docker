@@ -12,7 +12,7 @@ ADD catalina.properties /usr/local/tomcat/conf/catalina.properties
 
 RUN apk --update add curl unzip fastjar; \
     rm -rf /usr/local/tomcat/webapps/*; \
-    curl -k -L https://bintray.com/artifact/download/esaude/platform/2.0.5/openmrs.war \
+    curl -k -L https://bintray.com/artifact/download/esaude/platform/openmrs.war \
          -o /usr/local/tomcat/webapps/openmrs.war; \
     mkdir /tmp/war_temp && unzip -q /usr/local/tomcat/webapps/openmrs.war -d /tmp/war_temp; \
     sed -i "s/Powered by/Powered by eSaúde Platform v$RELEASE_VERSION and/g" /tmp/war_temp/WEB-INF/messages.properties; \
@@ -29,7 +29,7 @@ RUN apk --update add curl unzip fastjar; \
     rm -rf /tmp/war_temp;
 
 RUN mkdir -p /usr/local/tomcat/.OpenMRS/modules; \
-    curl -k -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-modules-1.6.9.zip \
+    curl -k -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-modules-2.0.5.zip \
          -o /tmp/esaude-emr-modules.zip; \
     unzip /tmp/esaude-emr-modules.zip -d /usr/local/tomcat/.OpenMRS/modules; \
     rm /tmp/esaude-emr-modules.zip; \
