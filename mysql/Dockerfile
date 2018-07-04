@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     zip \
     unzip \
-&& curl -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-database-2.x.sql.zip \
+&& curl -L https://bintray.com/artifact/download/esaude/platform/esaude-platform-database-2.0.5.sql.zip \
     -o /tmp/esaude-platform-database.sql.zip \
 && apt-get remove -y \
    curl \
