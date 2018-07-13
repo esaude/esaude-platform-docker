@@ -1,6 +1,6 @@
 {
   "name": "esaude-platform-docker",
-  "version": "1.4.4",
+  "version": "2.0.6",
   "description": "eSaude EMR Platform App",
   "repository": {
     "type": "git",
